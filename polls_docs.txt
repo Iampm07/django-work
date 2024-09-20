@@ -1,0 +1,79 @@
+First you need to install python  check it in vs code through python --version 
+   this will give you the python version if its installed otherwise you have to download it from its official site.
+Now after checking first we create a venv(virtual environment) for our project.
+Check it in vs code through venv --version
+    if its not installed then install it through running a command which is python -m venv environ
+    where environ is the name of your venv(virtual environment).
+Now activate your venv through  coming at the terminal(command prompt in it(environ>scripts>)) 
+   and type activate  and it will activate your venv.
+   if you want to deactivate your venv then type deactivate.
+Now back to our project folder and install django through pip install django.
+   and check it in vs code through django --version also you can check all installed packages
+   through pip list.
+Now create a project folder and type django-admin startproject project_name(here project_name is firstproject).
+Now go to project folder and type python manage.py runserver.
+Now go to http://127.0.0.1:8000/ and check it.You will see your project in the browser.which is django default project.
+Now to get access to admin panel you have to go to http://127.0.0.1:8000/admin.
+    it will need username and password to access it.
+Create it in cmd through python manage.py createsuperuser.
+    it will create username and password in the admin panel.
+    username-pankaj
+    paswrd-12345
+    and check it in http://127.0.0.1:8000/admin.
+Now we give command of make migrations to apply migrations and after this python manage.py migrate.
+     this will apply all migrations.
+     After this we go to project folder and type python manage.py startapp polls.
+Now to register out app in install apps in  firstproject>settings.py
+every app has to be registered in settings.py. of firstproject
+Created pools app
+Created models Question and Choice.
+  question_text=models.CharField(max_length=200)
+    pub_date=models.DateTimeField("date published")
+    same for Choice
+    and 
+       def __str__(self):
+        return f'{self.choice_text}'
+         for both to see object as a string. in database.
+
+
+Created two models in polls app which are question and choice.
+    in which we have used one to one relationship by use of foreign key.
+    now applying models by python manage.py makemigrations and python manage.py migrate
+    byh shell method through python api facilities.
+Now to add data we have to go to project folder and type python manage.py shell.
+keeping in mind to communicate
+   with database server should be running so for shell we use extra cmd  terminal.While server continue to run.
+For shell python manage.py shell and type 
+    from polls.models import Question and from polls.models import Choice.
+         then type Question.objects.all() 
+        Choice.objects.all() and check it.
+Now in shell command add data by 
+        q1=Question(question_text='what is your name',pub_date=timezone.now())
+        q1.save()
+        type c1=Choice(choice_text='my name is pankaj',votes=0,question=q1)
+Now we have to save it by   c1.save() and check it.
+
+Now to see the updated data in admin site your Question and Choice should be registered in admin site.
+    and check it in http://127.0.0.1:8000/admin.
+Check we make a index in view by name index which displays data in the browser in admin.
+In views we have to create index function
+Now in urls.py we have to import path and include
+    from django.urls import path 
+       path('',views.index,name='index'),
+Creating a template in templates folder
+Created a static>polls>style.css
+Created  folder polls and a index.html file
+   added css into it 
+   <link rel="stylesheet" href="{% static 'polls/style.css'%}">
+   and check it in http://127.0.0.1:8000/index (working perfect.)on 
+12-09-2024
+Created a app named onetoone
+        python manage.py startapp polls
+Registered onetoone app in settings.py of firstproject
+Now in models.py register models of Place and Restaurant
+        from django.db import models
+        class Place,Class Restuarant
+        with name and address fields and restaurant has
+        one to one field relation with Place.
+        and now through shell mode api 
+        we put some data into it.
