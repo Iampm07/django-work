@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'manytoone',
-    'onetoone.apps.OnetooneConfig',
+    'onetoone',
     'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
