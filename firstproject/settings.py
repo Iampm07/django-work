@@ -31,9 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'manytomany',
     'manytoone',
     'onetoone',
-    'manytomany',
     'polls',
     'django.contrib.admin',
     'django.contrib.auth',
