@@ -5,3 +5,7 @@ h1{
 
     color: rgb(151, 204, 28);
 }
+body{
+    background: white url(
+        "images/votepic.png") no-repeat;
+        }

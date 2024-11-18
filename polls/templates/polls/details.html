@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
+    <title>{{question.question_text}}</title>
     <link rel="stylesheet" href="{% static 'polls/style.css'%}">
 </head>
 <form action="{%url 'polls:vote' question.id %}" method="POST">
@@ -14,9 +14,11 @@
         {% for choice in question.choice_set.all %}
         <input type="radio" name="choice" id="choice{{
             forloop.counter}}" value="{{choice.id }}">
-            <label for="choice {{forloop.counter }}">{{
+            <label for="choice{{forloop.counter }}">{{
            choice.choice_text }}
             </label><br>
+            {% empty %}
+            <p>NO Choices available for this Poll</p>
             {% endfor %}
     </fieldset>
     <input type="submit" value="Vote">
