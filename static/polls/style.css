@@ -1,0 +1,5 @@
+body{
+    background: white url("{% static 'polls/votepic.png' % }"
+        ) no-repeat center fixed ;
+        background-size: cover ;
+        }
