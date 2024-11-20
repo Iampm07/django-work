@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+       <meta charset = "UTF-8">
+       <meta name="viewport" content="width=device-width", initial-scale="1.0">
+       <title> ADD QUESTION</title>
+
+    </head>
+    <body>
+        
+        <form method="POST">
+            {% csrf_token %}
+            {{ question_form.as_p }}
+            <h3>Choices:</h3>
+            <div id="choices">
+                <input type="text" name ="choices" placeholder="Enter choice" required>
+            </div>
+            <button type="button" onclick="addChoice()">Add Another Choice</button>
+            <br><br>
+            <button type="submit">SubMit</button>
+        </form>
+        <script>
+            function addChoice(){
+                const div = document.getElementById('choices');
+                const input = document.createElement('input');
+                input.type ="text";
+                input.name = 'choices';
+                input.placeholder = 'enter choice';
+                div.appendChild(input);
+                div.appendChild(document.createElement('br'));
+            }
+        </script>
+    </body>
+</html>

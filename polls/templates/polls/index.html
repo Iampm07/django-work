@@ -32,6 +32,9 @@
 <body>
 <h1> Welcome to polls app</h1>
 
+<a href="{% url 'polls:add_question' %}">Add a Question</a>
+
+
  {% if latest_question_list %}
  <ul>
     {% for question in latest_question_list %}
@@ -41,5 +44,12 @@
  {% else %}
  <P>No polls are available </P>
  {% endif %}
+ <ul>
+  {% for question in questions %}
+  <li>
+    <a href="{% url 'polls:results' question.id %}">{{question.question_text}}</a>
+  </li>
+  {% endfor %}
+ </ul>
 </body>
 </html>
